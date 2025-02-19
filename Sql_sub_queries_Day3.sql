@@ -47,3 +47,12 @@ SELECT amount FROM payment WHERE amount=5.99 -- 1188 rows
 
 SELECT amount FROM payment WHERE payment_id IN (SELECT payment_id FROM payment WHERE amount>5.99) -- 2423 rows
 SELECT amount FROM payment WHERE amount>5.99 -- 2423 rows
+
+
+
+select * from customer -- 599
+select * from payment   --14596
+
+SELECT * from customer WHERE customer_id in (
+SELECT customer_id FROM payment WHERE payment_id > 17540
+);   -- (599 rows)  all customer id's in payment are in customer table
